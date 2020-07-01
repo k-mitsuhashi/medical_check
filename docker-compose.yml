@@ -1,0 +1,12 @@
+version: '3'
+
+services:
+  php:
+    build: "./php"
+    volumes:
+      - "./src:/src:z"
+    ports:
+      - "8000:8000"
+    tty: true
+    environment:
+      - "TZ=Asia/Tokyo"

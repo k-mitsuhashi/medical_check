@@ -27,7 +27,7 @@ class RegisterController extends Controller
      */
     public function confirm(RegisterRequest $request)
     {
-        return view('user.register.confirm')->with($request->all('name', 'birth_date'));
+        return view('user.register.confirm')->with($request->only('name', 'birth_date'));
     }
 
     /**

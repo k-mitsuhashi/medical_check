@@ -24,15 +24,17 @@ class CarbonServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        // 年度の末日を算出する
-        Carbon::macro('endOfFiscalYear', function () {
-            $year = ($this->month > 3) ? $this->year : $this->year - 1;
-            return Carbon::createMidnightDate($year, 3, 31);
+        // 年度を求める
+        Carbon::macro('fiscalYear', function () {
+            return ($this->month > 3) ? $this->year : $this->year - 1;
         });
 
         // 誕生日から満年齢をセットする
         Carbon::macro('setAge', static function () {
-            $endday = Carbon::today()->endOfFiscalYear();
+            // 年度の末日を算出する
+            $fiscalYear = Carbon::today()->fiscalYear();
+            $endday = Carbon::createMidnightDate($year, 3, 31);
+
             $carbon->age = self::this()->diffInYears($endday);
         });
 

@@ -7,6 +7,16 @@
     </head>
     <body>
         <h2>受診記録登録</h2>
+    @if(session()->has('record'))
+        <p>登録完了
+        <br>
+        受診日：{{ session('record')['date'] }}
+        <br>
+        受診コース：{{ config('const.course')[session('record')['course']] }}
+        <br>
+        受診場所：{{ session('record')['place'] }}
+        </p>
+    @endif
     @if ($errors->any())
         <ul>
         @foreach ($errors->all() as $error)
@@ -14,10 +24,10 @@
         @endforeach
         </ul>
     @endif
-        {{ Form::open(['method' => 'post', 'action' => ['User\RecordController@confirm', 'id' => $user['id']]]) }}
+        {{ Form::open(['method' => 'post', 'action' => ['User\RecordController@confirm', 'id' => $id]]) }}
             受診日：{{ Form::date('date', old('date'), ['required', 'max' => date('Y-m-d')]) }}
             <br>
-            受診コース：{{ Form::select('course', config('const.course'), (old('course') ?? $user['course']), ['required']) }}
+            受診コース：{{ Form::select('course', config('const.course'), (old('course') ?? $course), ['required']) }}
             <br>
             受診場所：<br>
             {{ Form::textarea('place', old('place'), ['required']) }}

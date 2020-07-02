@@ -7,7 +7,7 @@
     </head>
     <body>
         <h2>入力確認</h2>
-        {{ Form::open(['method' => 'post', 'action' => ['User\RecordController@store', 'id' => $user['id']]]) }}
+        {{ Form::open(['method' => 'post', 'action' => ['User\RecordController@store', 'id' => $id]]) }}
             受診日：{{ $date }}
             {{ Form::hidden('date', $date) }}
             <br>

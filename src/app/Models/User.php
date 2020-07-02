@@ -31,7 +31,7 @@ class User extends Model
 
     public static function getUser($id)
     {
-        $user = static::with('records')->find($id);
+        $user = static::with('records')->findOrFail($id);
 
         return new UserDetailResource($user);
     }

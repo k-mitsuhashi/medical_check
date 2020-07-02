@@ -20,8 +20,9 @@
                 <td>{{ $user['id'] }}</td>
                 <td>{{ $user['name'] }}</td>
                 <td>{{ $user['age'] }}</td>
-                <td>{{ $user['course'] }}</td>
-                <td><a href="/users/{{ $user['id'] }}/" target="_blank">詳細</a></td>
+                <td>{{ config('const.course')[$user['course']] }}</td>
+                <td></td>
+                <td><a href="/users/{{ $user['id'] }}/record">受診記録登録</a></td>
             </tr>
         </tbody></table>
     </body>

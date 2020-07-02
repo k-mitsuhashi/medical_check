@@ -18,18 +18,17 @@ class UserController extends Controller
     {
         $users = User::getList()->toArray($request);
 
-        return view('user.index')->with('users', $users);
+        return view('user.index')->with(compact('users'));
     }
     /**
      * ユーザー詳細
      *
      * @param Request $request
+     * @param array $user
      * @return \Illuminate\View\View|\Illuminate\Contracts\View\Factory
      */
-    public function detail(Request $request, $id)
+    public function detail(Request $request, array $user)
     {
-        $user = User::getUser($id)->toArray($request);
-
-        return view('user.detail')->with('user', $user);
+        return view('user.detail')->with(compact('user'));
     }
 }

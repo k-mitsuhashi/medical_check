@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
 use Illuminate\Support\Facades\Route;
+use App\Models\User;
 
 class RouteServiceProvider extends ServiceProvider
 {
@@ -33,6 +34,11 @@ class RouteServiceProvider extends ServiceProvider
         //
 
         parent::boot();
+
+        // パラメータのidにバインドしてユーザーを取得
+        Route::bind('id', function ($id) {
+            return User::getUser($id)->toArray(null);
+        });
     }
 
     /**

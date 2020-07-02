@@ -21,7 +21,7 @@
                 <td>{{ $user['id'] }}</td>
                 <td>{{ $user['name'] }}</td>
                 <td>{{ $user['age'] }}</td>
-                <td>{{ $user['course'] }}</td>
+                <td>{{ config('const.course')[$user['course']] }}</td>
                 <td>{{ $user['count'] }}</td>
                 <td><a href="/users/{{ $user['id'] }}/" target="_blank">詳細</a></td>
             </tr>

@@ -36,9 +36,9 @@ class CarbonServiceProvider extends ServiceProvider
             $carbon->age = self::this()->diffInYears($endday);
         });
 
-        // 満年齢からコースを取得する
+        // 満年齢からコース区分を取得する
         Carbon::macro('getCourse', static function () {
-            return (self::this()->age >= 35) ? '1日人間ドック' : '基本検診';
+            return (self::this()->age >= 35) ? 0 : 1;
         });
     }
 }

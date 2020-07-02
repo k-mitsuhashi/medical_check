@@ -20,16 +20,21 @@ Route::get('/', function () {
 Route::group(['prefix' => 'users', 'namespace' => 'User'], function () {
     // ユーザー一覧
     Route::get('/', 'UserController@index');
-    // ユーザー詳細
-    Route::get('/{id}', 'UserController@detail')->where('id', '[0-9]+');;
-
     // ユーザー登録
     Route::get('/register', 'RegisterController@input');
     Route::post('/register/confirm', 'RegisterController@confirm');
     Route::post('/register', 'RegisterController@store');
+
+    Route::prefix('{id}')->group(function () {
+        // ユーザー詳細
+        Route::get('/', 'UserController@detail')->where('id', '[0-9]+');
+        // 受診記録登録
+        Route::get('/record', 'RecordController@input')->where('id', '[0-9]+');
+        Route::post('/record/confirm', 'RecordController@confirm')->where('id', '[0-9]+');
+        Route::post('/record', 'RecordController@store')->where('id', '[0-9]+');
+    });
 });
 
-// Route::get('/users/{id}/records', 'Record\RegisterController@index');
 // Route::post('/users/{id}/records', 'Record\RegisterController@add');
 
 // Route::get('/records', 'Record\RecordController@index');

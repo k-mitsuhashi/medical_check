@@ -22,7 +22,7 @@ class RegisterController extends Controller
     /**
      * 入力確認
      *
-     * @param \App\Http\Requests\User\RegisterRequest\RegisterRequest $request
+     * @param \App\Http\Requests\User\RegisterRequest $request
      * @return \Illuminate\View\View|\Illuminate\Contracts\View\Factory
      */
     public function confirm(RegisterRequest $request)
@@ -33,7 +33,7 @@ class RegisterController extends Controller
     /**
      * データ登録
      *
-     * @param \App\Http\Requests\User\RegisterRequest\RegisterRequest $request
+     * @param \App\Http\Requests\User\RegisterRequest $request
      * @return \Illuminate\View\View|\Illuminate\Contracts\View\Factory
      */
     public function store(RegisterRequest $request)

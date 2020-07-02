@@ -31,11 +31,17 @@ class CarbonServiceProvider extends ServiceProvider
 
         // 誕生日から満年齢をセットする
         Carbon::macro('setAge', static function () {
-            // 年度の末日を算出する
-            $fiscalYear = Carbon::today()->fiscalYear();
-            $endday = Carbon::createMidnightDate($year, 3, 31);
+            // 誕生日
+            $carbon = self::this();
+            $birthday = $carbon->format('Ymd');
 
-            $carbon->age = self::this()->diffInYears($endday);
+            // 年度の末日
+            $today = Carbon::today();
+            $year = ($today->month > 3) ? $today->year + 1: $today->year;
+            $endday = sprintf('%04d%02d%01d', $year, 3, 31);
+
+            // 年齢
+            $carbon->age = floor(($endday - $birthday) / 10000);
         });
 
         // 満年齢からコース区分を取得する

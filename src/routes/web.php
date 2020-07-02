@@ -34,3 +34,8 @@ Route::group(['prefix' => 'users', 'namespace' => 'User'], function () {
         Route::post('/record', 'RecordController@store')->where('id', '[0-9]+');
     });
 });
+
+Route::group(['prefix' => 'records', 'namespace' => 'Record'], function () {
+    // 受診記録一覧
+    Route::get('/', 'RecordController@index');
+});

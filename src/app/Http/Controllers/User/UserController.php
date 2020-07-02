@@ -20,6 +20,7 @@ class UserController extends Controller
 
         return view('user.index')->with(compact('users'));
     }
+
     /**
      * ユーザー詳細
      *

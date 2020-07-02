@@ -4,7 +4,7 @@ namespace App\Http\Resources\User;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 use Carbon\Carbon;
-use App\Http\Resources\Record\RecordResource;
+use App\Http\Resources\User\RecordResource;
 
 class UserDetailResource extends JsonResource
 {

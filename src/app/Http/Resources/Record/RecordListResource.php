@@ -4,7 +4,7 @@ namespace App\Http\Resources\Record;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class RecordResource extends JsonResource
+class RecordListResource extends JsonResource
 {
     /**
      * The "data" wrapper that should be applied.
@@ -22,11 +22,11 @@ class RecordResource extends JsonResource
     public function toArray($request)
     {
         return [
-            'id'     => $this->id,
-            'year'   => $this->year,
-            'date'    => $this->date,
-            'course' => $this->course,
-            'place'  => $this->place
+            'date'       => $this->date,
+            'user_id'    => $this->user_id,  
+            'name'       => $this->user->name,
+            'course'     => $this->course,
+            'place'      => $this->place
         ];
     }
 }

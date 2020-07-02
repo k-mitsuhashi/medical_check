@@ -4,9 +4,17 @@ namespace App\Http\Resources\User;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 use Carbon\Carbon;
+use App\Http\Resources\Record\RecordResource;
 
 class UserDetailResource extends JsonResource
 {
+    /**
+     * The "data" wrapper that should be applied.
+     *
+     * @var string
+     */
+    public static $wrap = '';
+
     /**
      * Transform the resource into an array.
      *
@@ -16,13 +24,15 @@ class UserDetailResource extends JsonResource
     public function toArray($request)
     {
         $date = Carbon::create($this->birth_date);
+        $records = RecordResource::collection($this->records)->toArray($request);
  
         return [
-            'id'     => $this->id,
-            'name'   => $this->name,
-            'age'    => $date->age,
-            'course' => $date->course,
-            'records'  => $this->records
+            'id'         => $this->id,
+            'name'       => $this->name,
+            'birth_date' => $this->birth_date,
+            'age'        => $date->age,
+            'course'     => $date->course,
+            'records'    => $records,
         ];
     }
 }

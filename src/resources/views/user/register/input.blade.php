@@ -29,6 +29,7 @@
             <br>
             生年月日：{{ Form::date('birth_date', old('birth_date'), ['required', 'max' => date('Y-m-d')]) }}
             <br>
+            <button onClick="history.back()">戻る</button>
             {{ Form::submit('確認') }}
         {{ Form::close() }}
     </body>

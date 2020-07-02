@@ -27,5 +27,7 @@
             </tr>
         @endforeach
         </tbody></table>
+        <br>
+        <a href="/"><button>戻る</button></a>
     </body>
 </html>

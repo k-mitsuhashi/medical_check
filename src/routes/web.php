@@ -34,7 +34,3 @@ Route::group(['prefix' => 'users', 'namespace' => 'User'], function () {
         Route::post('/record', 'RecordController@store')->where('id', '[0-9]+');
     });
 });
-
-// Route::post('/users/{id}/records', 'Record\RegisterController@add');
-
-// Route::get('/records', 'Record\RecordController@index');

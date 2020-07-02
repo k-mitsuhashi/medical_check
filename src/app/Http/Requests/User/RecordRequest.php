@@ -36,7 +36,7 @@ class RecordRequest extends FormRequest
             'year' => [
                 'required', 'integer',
                 Rule::unique('records')->where(function ($query) {
-                    $query->where('user_id', intval($this->id));
+                    $query->where('user_id', $this->user_id);
                 }),
             ],
         ];
@@ -49,6 +49,8 @@ class RecordRequest extends FormRequest
      */
     protected function prepareForValidation()
     {
+        $this->merge(['user_id' => $this->id['id']]);
+
         if ($this->filled('date')) {
             // 年度の追加
             $year = Carbon::create($this->date)->fiscalYear();

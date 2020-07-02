@@ -32,6 +32,7 @@
             受診場所：<br>
             {{ Form::textarea('place', old('place'), ['required']) }}
             <br>
+            <button onClick="history.back()">戻る</button>
             {{ Form::submit('確認') }}
         {{ Form::close() }}
     </body>

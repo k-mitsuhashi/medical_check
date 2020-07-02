@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Laravel</title>
+        <title>受診記録</title>
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
@@ -67,9 +67,9 @@
         <div class="flex-center position-ref full-height">
             <div class="content">
                 <div class="links">
-                    <a href="/users">ユーザー一覧</a>
                     <a href="/users/register">ユーザー登録</a>
-                    <a href="/records">受診記録登録</a>
+                    <a href="/users">ユーザー一覧</a>
+                    <a href="/records">受診記録一覧</a>
                 </div>
             </div>
         </div>

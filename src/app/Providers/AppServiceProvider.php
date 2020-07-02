@@ -13,10 +13,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        // しばらくクエリログ出しておく
-        \DB::listen(function ($query) {
-            \Log::info("Query Time:{$query->time}s] $query->sql");
-        });
+        //
     }
 
     /**

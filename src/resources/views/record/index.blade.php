@@ -23,7 +23,7 @@
             <tr>
                 <td>{{ $record['date'] }}</td>
                 <td>{{ $record['name'] }}</td>
-                <td>{{ config('const.course')[$record['course']] }}</td>
+                <td>{{ $record['course'] }}</td>
                 <td>{{ $record['place'] }}</td>
             </tr>
         @endforeach

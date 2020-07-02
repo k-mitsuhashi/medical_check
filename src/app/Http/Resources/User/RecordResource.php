@@ -22,10 +22,9 @@ class RecordResource extends JsonResource
     public function toArray($request)
     {
         return [
-            'id'     => $this->id,
             'year'   => $this->year,
             'date'    => $this->date,
-            'course' => $this->course,
+            'course' => config('const.course')[$this->course],
             'place'  => $this->place
         ];
     }

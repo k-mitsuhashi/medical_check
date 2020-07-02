@@ -13,7 +13,8 @@ class Kernel extends ConsoleKernel
      * @var array
      */
     protected $commands = [
-        //
+        // ユーザー詳細の表示
+        Commands\User\UserDetail::class,
     ];
 
     /**

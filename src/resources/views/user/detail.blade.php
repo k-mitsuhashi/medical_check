@@ -20,7 +20,7 @@
                 <td>{{ $user['name'] }}</td>
                 <td>{{ $user['birth_date'] }}</td>
                 <td>{{ $user['age'] }}</td>
-                <td>{{ config('const.course')[$user['course']] }}</td>
+                <td>{{ $user['course'] }}</td>
             </tr>
         </tbody></table>
         <br>
@@ -35,7 +35,7 @@
             <tr>
                 <td>{{ $record['year'] }}</td>
                 <td>{{ $record['date'] }}</td>
-                <td>{{ config('const.course')[$record['course']] }}</td>
+                <td>{{ $record['course'] }}</td>
                 <td>{{ $record['place'] }}</td>
             </tr>
         @endforeach

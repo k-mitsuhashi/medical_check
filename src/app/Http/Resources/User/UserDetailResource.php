@@ -31,7 +31,7 @@ class UserDetailResource extends JsonResource
             'name'       => $this->name,
             'birth_date' => $this->birth_date,
             'age'        => $date->age,
-            'course'     => $date->course,
+            'course'     => config('const.course')[$date->course],
             'records'    => $records,
         ];
     }

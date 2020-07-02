@@ -28,7 +28,7 @@ class UserListResource extends JsonResource
             'id'     => $this->id,
             'name'   => $this->name,
             'age'    => $date->age,
-            'course' => $date->course,
+            'course' => config('const.course')[$date->course],
             'count'  => $this->records->count()
         ];
     }

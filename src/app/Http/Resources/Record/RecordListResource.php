@@ -25,7 +25,7 @@ class RecordListResource extends JsonResource
             'date'       => $this->date,
             'user_id'    => $this->user_id,  
             'name'       => $this->user->name,
-            'course'     => $this->course,
+            'course'     => config('const.course')[$this->course],
             'place'      => $this->place
         ];
     }

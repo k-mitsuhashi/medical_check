@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use App\Http\Resources\User\UserListResource;
+use App\Http\Resources\User\UserDetailResource;
 
 class User extends Model
 {
@@ -26,5 +27,12 @@ class User extends Model
         $users = static::with('records')->get();
 
         return UserListResource::collection($users);
+    }
+
+    public static function getUser($id)
+    {
+        $user = static::with('records')->find($id);
+
+        return new UserDetailResource($user);
     }
 }

@@ -21,7 +21,7 @@ Route::group(['prefix' => 'users', 'namespace' => 'User'], function () {
     // ユーザー一覧
     Route::get('/', 'UserController@index');
     // ユーザー詳細
-    Route::get('/users/{id}', 'UserController@detail')->where('id', '[0-9]+');;
+    Route::get('/{id}', 'UserController@detail')->where('id', '[0-9]+');;
 
     // ユーザー登録
     Route::get('/register', 'RegisterController@input');

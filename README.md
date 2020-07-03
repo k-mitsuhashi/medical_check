@@ -12,4 +12,7 @@ php artisan migrate
 
 # サーバ起動
 php artisan serve --host 0.0.0.0
+
+# コンソールコマンド
+php artisan user-detail {user_id}
 ```
